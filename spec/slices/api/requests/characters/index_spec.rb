@@ -9,9 +9,11 @@ RSpec.describe "GET /api/characters", type: :request do
 
     response_body = JSON.parse(last_response.body)
 
-    expect(response_body).to eq([
-      { "name" => "Silent Glade" },
-      { "name" => "Yeremi Pashaman" }
-    ])
+    expect(response_body).to eq({
+      "characters" => [
+        { "name" => "Silent Glade" },
+        { "name" => "Yeremi Pashaman" }
+      ]
+    })
   end
 end

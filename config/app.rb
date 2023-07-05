@@ -4,5 +4,6 @@ require "hanami"
 
 module Exalted
   class App < Hanami::App
+    config.actions.format :html
   end
 end

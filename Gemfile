@@ -13,8 +13,13 @@ gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem "puma"
 gem "rake"
 
+gem "alba"
+gem "oj"
+
 group :development, :test do
   gem "dotenv"
+  gem "pry", '~> 0.13.1'
+  gem "pry-byebug"
 end
 
 group :cli, :development do

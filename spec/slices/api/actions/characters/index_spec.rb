@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Exalted::Actions::API::Characters::Index do
+RSpec.describe API::Actions::Characters::Index do
   let(:params) { Hash[] }
 
   it "works" do
