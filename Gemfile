@@ -12,6 +12,7 @@ gem "hanami-webconsole", "~> 2.1.0.beta"
 gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem "puma"
 gem "rake"
+gem "slim"
 
 gem "alba"
 gem "oj"
@@ -36,4 +37,5 @@ end
 
 group :test do
   gem "rack-test"
+  gem "capybara"
 end

@@ -5,7 +5,7 @@ module Exalted
     module Characters
       class Index < Exalted::Action
         def handle(*, response)
-          response.body = self.class.name
+          response.render view
         end
       end
     end

@@ -5,13 +5,9 @@ RSpec.describe "GET /characters", type: :request do
     get "/characters"
 
     expect(last_response).to be_successful
-    expect(last_response.content_type).to eq("application/json; charset=utf-8")
+    expect(last_response.content_type).to eq("text/html; charset=utf-8")
 
-    response_body = JSON.parse(last_response.body)
-
-    expect(response_body).to eq([
-      { "name" => "Silent Glade" },
-      { "name" => "Yeremi Pashaman" }
-    ])
+    expect(last_response.body).to have_css("li", text: "Silent Glade")
+    expect(last_response.body).to have_css("li", text: "Yeremi Pashaman")
   end
 end

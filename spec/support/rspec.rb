@@ -1,6 +1,10 @@
 # frozen_string_literal: true
+require "capybara/rspec"
 
 RSpec.configure do |config|
+  config.include Capybara::DSL, type: :request
+  config.include Capybara::RSpecMatchers, type: :request
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
