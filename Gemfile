@@ -14,6 +14,10 @@ gem "puma"
 gem "rake"
 gem "slim"
 
+gem "rom", "~> 5.3"
+gem "rom-sql", "~> 3.6"
+gem "pg"
+
 gem "alba"
 gem "oj"
 
@@ -38,4 +42,5 @@ end
 group :test do
   gem "rack-test"
   gem "capybara"
+  gem "database_cleaner-sequel"
 end
