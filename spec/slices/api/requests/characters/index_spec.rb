@@ -1,6 +1,13 @@
 # spec/requests/characters/index_spec.rb
 
-RSpec.describe "GET /api/characters", type: :request do
+RSpec.describe "GET /api/characters", type: [:request, :database] do
+  let(:characters) { app["persistence.rom"].relations[:characters] }
+
+  before do
+    characters.insert(name: "Silent Glade", exaltation: "Solar")
+    characters.insert(name: "Tepet Asilano", exaltation: "Dragon-Blooded")
+  end
+
   it "returns a list of characters" do
     get "/api/characters"
 
@@ -11,8 +18,8 @@ RSpec.describe "GET /api/characters", type: :request do
 
     expect(response_body).to eq({
       "characters" => [
-        { "name" => "Silent Glade" },
-        { "name" => "Yeremi Pashaman" }
+        { "name" => "Silent Glade", "exaltation" => "Solar" },
+        { "name" => "Tepet Asilano", "exaltation" => "Dragon-Blooded" }
       ]
     })
   end

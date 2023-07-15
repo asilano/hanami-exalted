@@ -7,7 +7,7 @@ module API
 
       root_key :character, :characters
 
-      attributes :name
+      attributes :name, :exaltation
     end
   end
 end

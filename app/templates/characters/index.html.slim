@@ -2,4 +2,6 @@ h1 All Characters
 
 ul
   - characters.each do |character|
-    li = character.name
+    li
+      span.name= character[:name]
+      span.exaltation{class=character[:exaltation]}= " (#{character[:exaltation]})"

@@ -4,13 +4,14 @@ module API
   module Actions
     module Characters
       class Index < API::Action
+        include Deps["persistence.rom"]
+
         def handle(*, response)
-          character_type = Struct.new(:name)
-          characters = [
-            character_type.new("Silent Glade"),
-            character_type.new("Yeremi Pashaman"),
-          ]
-          response.body = Serializers::Character.new(characters).serialize
+          characters = rom.relations[:characters]
+            .select(:name, :exaltation)
+            .order(:name)
+            .to_a
+          response.body = {characters: }.to_json #Serializers::Character.new(characters).serialize
         end
       end
     end

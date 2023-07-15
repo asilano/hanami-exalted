@@ -4,11 +4,14 @@ module Exalted
   module Views
     module Characters
       class Index < Exalted::View
-        character_type = Struct.new(:name)
-        characters = [
-          character_type.new("Silent Glade"),
-          character_type.new("Yeremi Pashaman"),
-        ]
+        include Deps["persistence.rom"]
+
+        def characters
+          rom.relations[:characters]
+            .select(:name, :exaltation)
+            .order(:name)
+            .to_a
+        end
 
         expose :characters do
           characters
