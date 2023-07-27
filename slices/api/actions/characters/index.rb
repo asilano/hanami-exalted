@@ -4,14 +4,10 @@ module API
   module Actions
     module Characters
       class Index < API::Action
-        include Deps["persistence.rom"]
+        include Deps["repositories.characters"]
 
         def handle(*, response)
-          characters = rom.relations[:characters]
-            .select(:name, :exaltation)
-            .order(:name)
-            .to_a
-          response.body = {characters: }.to_json #Serializers::Character.new(characters).serialize
+          response.body = Serializers::Character.new(characters.all).serialize
         end
       end
     end

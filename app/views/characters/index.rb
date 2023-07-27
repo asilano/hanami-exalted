@@ -4,17 +4,10 @@ module Exalted
   module Views
     module Characters
       class Index < Exalted::View
-        include Deps["persistence.rom"]
-
-        def characters
-          rom.relations[:characters]
-            .select(:name, :exaltation)
-            .order(:name)
-            .to_a
-        end
+        include Deps["repositories.characters"]
 
         expose :characters do
-          characters
+          characters.all
         end
       end
     end
