@@ -1,1 +1,9 @@
-<%= yield %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exalted<%= " - #{content_for(:subtitle)}" if content_for(:subtitle) %></title>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
