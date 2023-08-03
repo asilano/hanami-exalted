@@ -2,8 +2,8 @@
 
 module Exalted
   class Routes < Hanami::Routes
-    root { "Hello from Hanami" }
-    get "/characters", to: "characters.index"
+    root to: "scopeless.home"
+    get "/characters", to: "characters.index", as: :characters
 
     slice :api, at: "/api" do
       get "/characters", to: "characters.index"
