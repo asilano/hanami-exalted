@@ -4,7 +4,7 @@ require "hanami"
 
 module Exalted
   class App < Hanami::App
-    config.actions.format :html
+    config.actions.format :all
 
     config.shared_app_component_keys << "repositories.characters"
 

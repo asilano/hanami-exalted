@@ -1,0 +1,21 @@
+- content_for :subtitle, "Register"
+.full-viewport
+  h1 Register Account
+  = form_for "user", routes.path(:user_management_create_user) do |f|
+    .form-field
+      = f.label "Display name", for: "name"
+      = f.text_field "name", value: user[:name]
+      = errors.message(:name)
+    .form-field
+      = f.label "Email address", for: "email", class: "required-field"
+      = f.text_field "email", value: user[:email]
+      = errors.message(:email)
+    .form-field
+      = f.label "Password", for: "password", class: "required-field"
+      = f.password_field "password"
+      = errors.message(:password)
+    .form-field
+      = f.label "Confirm password", for: "password_confirmation", class: "required-field"
+      = f.password_field "password_confirmation"
+      = errors.message(:password_confirmation)
+    = f.submit "Register"
