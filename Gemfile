@@ -9,6 +9,8 @@ gem "hanami-validations", "~> 2.1.0.beta"
 gem "hanami-view", "~> 2.1.0.beta"
 gem "hanami-webconsole", "~> 2.1.0.beta"
 
+gem "dry-monads"
+gem "dry-matcher"
 gem "dry-types", "~> 1.0", ">= 1.6.1"
 gem "puma"
 gem "rake"
