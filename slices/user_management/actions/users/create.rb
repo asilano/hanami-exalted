@@ -5,6 +5,7 @@ module UserManagement
     module Users
       class Create < UserManagement::Action
         include Deps[failure_view: "views.users.new"]
+        include Deps["commands.users.create"]
 
         class ParamsContract < Dry::Validation::Contract
           params do
